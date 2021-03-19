@@ -1,9 +1,9 @@
-import Cell from './Cell';
+import Cell from './Cell/index';
 
-const BoardColumn = () => {
+const BoardColumn = ({ cells }) => {
     return (
         <div>
-        {Array(6).fill(0).map((e, i) => <Cell />)}
+            {Array(6).fill(0).map((e, i) => <Cell key={i} />)}
         </div>
     )
 }

@@ -7,7 +7,7 @@ const Game = ({players}) => {
     return (
         <div>
             <Scoreboard />
-            <Board />
+            <Board players={players}/>
             {/*ask new game*/}
         </div>
     )
