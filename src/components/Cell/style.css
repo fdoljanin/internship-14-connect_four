@@ -2,12 +2,13 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background: #aaa;
+    background-color: #aaa;
+    transition: background-color 0.3s;
 }
 
 .cell--playerOne {
-    background: #55f;
+    background-color: var(--color-playerOne);
 }
 .cell--playerTwo {
-    background: #f55;
+    background-color: var(--color-playerTwo);
 }

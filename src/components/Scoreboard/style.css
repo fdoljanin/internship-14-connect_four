@@ -28,3 +28,13 @@
 .scoreboard-player > * {
     margin-left: 10px;
 }
+
+@media screen and (max-width:768px) {
+    .scoreboard{
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: auto;
+        margin-top: 20px;
+    }
+}

@@ -19,3 +19,9 @@
 .initial-input__wrapper > * {
     margin: 5px;
 }
+
+@media screen and (max-width: 768px){
+    .initial-form {
+        width: 300px;
+    }
+}

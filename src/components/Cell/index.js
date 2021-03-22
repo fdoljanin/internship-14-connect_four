@@ -1,4 +1,3 @@
-import {Players} from '../../consts';
 import './style.css';
 
 const Cell = ({cellValue}) => {

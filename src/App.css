@@ -1,3 +1,8 @@
+:root {
+    --color-playerOne: #f55;
+    --color-playerTwo: #fb0;
+}
+
 .circle {
     width: 15px;
     height: 15px;
@@ -5,9 +10,14 @@
 }
 
 .circle--playerOne {
-    background: #55f;
+    background: var(--color-playerOne);
 }
 
 .circle--playerTwo {
-    background: #f55;
+    background: var(--color-playerTwo);
+}
+
+button {
+    background: none;
+    border: 2px solid black;
 }

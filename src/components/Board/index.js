@@ -2,7 +2,7 @@ import './style.css';
 import { useState } from "react";
 import { constructBoardCells } from "../../consts/defaults";
 import BoardColumn from "../BoardColumn/index";
-import { Players } from '../../consts';
+import { Players, WaysToWin } from '../../consts';
 import RoundStatus from '../RoundStatus';
 
 const Board = ({ players, handleWin }) => {
@@ -33,34 +33,20 @@ const Board = ({ players, handleWin }) => {
     }
 
     const checkWin = (column, row) => {
-        let waysToWin = {
-            horizontal: {
-                x: [-3, -2, -1, 0, 1, 2, 3],
-                y: [0, 0, 0, 0, 0, 0, 0, 0]
-            },
-            vertical: {
-                x: [0, 0, 0, 0, 0, 0, 0, 0],
-                y: [-3, -2, -1, 0, 1, 2, 3]
-            },
-            diagonalPositive: {
-                x: [-3, -2, -1, 0, 1, 2, 3],
-                y: [-3, -2, -1, 0, 1, 2, 3]
-            },
-            diagonalNegative: {
-                x: [-3, -2, -1, 0, 1, 2, 3],
-                y: [3, 2, 1, 0, -1, -2, -3]
-            }
-        };
-
-        for (let way of Object.values(waysToWin)) {
+        for (let way of Object.values(WaysToWin)) {
             let listOfCells = [];
             for (let i = 0; i < 7; ++i)
-                //console.log(column+way.x[i], row+way.y[i]);
                 listOfCells.push(boardCells[column + way.x[i]]?.[row + way.y[i]]);
             listOfCells[3] = currentPlayer;
 
             if (isSuccess(listOfCells)) handleWin(currentPlayer);
         }
+
+        for (let i = 0; i < boardCells.length; ++i)
+            if (i === column && row === 0) continue;
+            else if (boardCells[i][0] === Players.noPlayer) return;
+
+        handleWin(Players.noPlayer);
     }
 
     const handleColumnClick = (column, row) => {
@@ -73,7 +59,9 @@ const Board = ({ players, handleWin }) => {
         <div className="round">
             <RoundStatus players={players} currentPlayer={currentPlayer} />
             <div className="board-table">
-                {Array(7).fill(0).map((e, i) => <BoardColumn key={i} columnCells={boardCells[i]} onColumnClick={(row) => handleColumnClick(i, row)} />)}
+                {Array(7).fill(0).map((e, column) =>
+                    <BoardColumn key={column} columnCells={boardCells[column]}
+                        onColumnClick={(row) => handleColumnClick(column, row)} />)}
             </div>
         </div>
     )

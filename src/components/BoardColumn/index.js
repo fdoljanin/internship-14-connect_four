@@ -5,15 +5,16 @@ import { Players } from '../../consts';
 const BoardColumn = ({ columnCells, onColumnClick }) => {
 
     const handleClick = () => {
-        const highestCell = columnCells.findIndex(cell => cell !== Players.noPlayer);
+        const highestCoin = columnCells.findIndex(cell => cell !== Players.noPlayer);
         
-        if (highestCell === 0) return;
-        if (highestCell === -1) return onColumnClick(columnCells.length - 1);
-        onColumnClick(highestCell - 1);
+        if (highestCoin === 0) return;
+        if (highestCoin === -1) return onColumnClick(columnCells.length - 1);
+        onColumnClick(highestCoin - 1);
     }
 
     return (
-        <div className="board-column" onClick={handleClick}>
+        <div className={columnCells[0]===Players.noPlayer ? "board-column":"board-column--full"} 
+        onClick={handleClick}>
             {Array(6).fill(0).map((e, i) => <Cell key={i} cellValue={columnCells[i]} />)}
         </div>
     )

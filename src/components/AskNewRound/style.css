@@ -8,13 +8,13 @@
 }
 
 .round-new--playerOne {
-    color: #55f;
-    border-color: #55f;
+    color: var(--color-playerOne);
+    border-color: var(--color-playerOne);
 }
 
 .round-new--playerTwo {
-    color: #f55;
-    border-color: #f55;
+    color: var(--color-playerTwo);
+    border-color: var(--color-playerTwo);
 }
 
 .round-new > * {

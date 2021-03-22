@@ -1,3 +1,7 @@
 .board-column:hover {
     background: #ddd;
 }
+
+.board-column--full:hover{
+    background: none;
+}

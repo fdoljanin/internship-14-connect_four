@@ -1,5 +1,5 @@
 import './App.css';
-import InitialScreen from './components/InitialScreen/index';
+import InitialScreen from './components/InitialScreen';
 import Game from './components/Game/index';
 import { useState } from 'react';
 

@@ -2,11 +2,13 @@ import "./style.css";
 import { useState } from "react"
 import { Players } from "../../consts";
 
+const initialState = {
+    [Players.playerOne]: '',
+    [Players.playerTwo]: ''
+}
+
 const InitialScreen = ({ setPlayers }) => {
-    const [playersForm, setPlayersForm] = useState({
-        [Players.playerOne]: '',
-        [Players.playerTwo]: ''
-    });
+    const [playersForm, setPlayersForm] = useState(initialState);
     const [warning, setWarning] = useState();
 
     const handleChange = ({ target: { name, value } }) => {
@@ -21,23 +23,28 @@ const InitialScreen = ({ setPlayers }) => {
             return;
         }
 
-        if (playersForm[Players.playerOne] === playersForm[Players.playerTwo]) {
+        if (playersForm[Players.playerOne].trim() === playersForm[Players.playerTwo].trim()) {
             setWarning("Names should be unique!");
             return;
         }
-        setPlayers(playersForm);
+        setPlayers(() => {
+            let copy = {...playersForm};
+            copy.playerOne = copy.playerOne.trim();
+            copy.playerTwo = copy.playerTwo.trim();
+            return copy;
+        });
     }
 
     return (
-        <form class="initial-form" onSubmit={handleSubmit}>
-            <div class="initial-input__wrapper">
+        <form className="initial-form" onSubmit={handleSubmit}>
+            <div className="initial-input__wrapper">
                 <label htmlFor={Players.playerOne}>Enter first player name:</label>
                 <input name={Players.playerOne}
                     onChange={handleChange}
                     value={playersForm[Players.playerOne]}
                     placeholder="Player 1 name"></input>
             </div>
-            <div class="initial-input__wrapper">
+            <div className="initial-input__wrapper">
                 <label htmlFor={Players.playerTwo}>Enter second player name:</label>
                 <input name={Players.playerTwo}
                     onChange={handleChange}
@@ -45,7 +52,7 @@ const InitialScreen = ({ setPlayers }) => {
                     placeholder="Player 2 name"
                 ></input>
             </div>
-            <input type="submit" />
+            <button type="submit">Play</button>
             <p className="initial-warning">{warning}</p>
         </form>
     )
