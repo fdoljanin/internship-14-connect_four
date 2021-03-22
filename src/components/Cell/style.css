@@ -1,0 +1,13 @@
+.cell {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #aaa;
+}
+
+.cell-first__player {
+    background: #55f;
+}
+.cell-second__player {
+    background: #f55;
+}

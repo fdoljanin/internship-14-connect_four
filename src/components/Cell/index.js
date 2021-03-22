@@ -1,11 +1,14 @@
-const Cell = ({players, cellValue}) => {
+import {Players} from '../../consts';
+import './style.css';
+
+const Cell = ({cellValue}) => {
     let cellClass = "cell ";
     switch (cellValue) {
-        case players.playerOne:
-            cellClass='cell-first__player';
+        case Players.playerOne:
+            cellClass+='cell-first__player';
             break;
-        case players.playerTwo:
-            cellClass+="cell-first__player";
+        case Players.playerTwo:
+            cellClass+="cell-second__player";
             break;
         default:
     }

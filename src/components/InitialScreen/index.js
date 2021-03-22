@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Players } from "../../consts";
 
 const InitialScreen = ({setPlayers}) => {
     const [playersForm, setPlayersForm] = useState();
@@ -14,8 +15,8 @@ const InitialScreen = ({setPlayers}) => {
 
     return (
     <form onSubmit={handleSubmit}>
-        <input name="playerOne" onChange={handleChange}></input>
-        <input name="playerTwo" onChange={handleChange}></input>
+        <input name={Players.playerOne} onChange={handleChange}></input>
+        <input name={Players.playerTwo} onChange={handleChange}></input>
         <input type="submit"/> 
     </form>
     )
