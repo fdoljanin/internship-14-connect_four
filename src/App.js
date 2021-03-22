@@ -1,7 +1,7 @@
-import './App.css';
+import { useState } from 'react';
 import InitialScreen from './components/InitialScreen';
 import Game from './components/Game/index';
-import { useState } from 'react';
+import './App.css';
 
 function App() {
   const [players, setPlayers] = useState(null);

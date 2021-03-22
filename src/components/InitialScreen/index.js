@@ -1,6 +1,6 @@
-import "./style.css";
-import { useState } from "react"
+import { useState } from "react";
 import { Players } from "../../consts";
+import "./style.css";
 
 const initialState = {
     [Players.playerOne]: '',

@@ -1,6 +1,6 @@
-import './style.css';
 import Cell from '../Cell/index';
 import { Players } from '../../consts';
+import './style.css';
 
 const BoardColumn = ({ columnCells, onColumnClick }) => {
 

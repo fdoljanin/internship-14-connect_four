@@ -1,13 +1,18 @@
-import './style.css';
-import { useState } from "react";
-import { constructBoardCells } from "../../consts/defaults";
+import { useEffect, useState } from "react";
 import BoardColumn from "../BoardColumn/index";
-import { Players, WaysToWin } from '../../consts';
 import RoundStatus from '../RoundStatus';
+import { Players, WaysToWin } from '../../consts';
+import { constructBoardCells } from "../../consts/defaults";
+import './style.css';
 
-const Board = ({ players, handleWin }) => {
+const Board = ({ players, handleWin, screen }) => {
     const [boardCells, setBoardCells] = useState(constructBoardCells());
     const [currentPlayer, setCurrentPlayer] = useState(Players.playerOne);
+
+    useEffect(()=>{ 
+        if (screen==="Board")
+            setBoardCells(constructBoardCells())
+    }, [screen])
 
     const handleNextPlayer = () => {
         setCurrentPlayer(prevPlayer =>

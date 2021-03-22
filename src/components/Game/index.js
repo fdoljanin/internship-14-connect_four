@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import Scoreboard from '../Scoreboard/index';
 import Board from '../Board/index';
 import AskNewRound from '../AskNewRound/index';
-import { useState } from 'react';
 import { Players } from '../../consts';
 import './style.css';
 
@@ -25,7 +25,7 @@ const Game = ({ players }) => {
             newScore[playerWinner]++;
             return newScore;
         })
-        
+
         setLastWin(playerWinner);
         setScreen("AskNewGame");
     }
@@ -34,10 +34,13 @@ const Game = ({ players }) => {
         <div className="game">
             <Scoreboard players={players} score={score} resetScore={() => setScore(initialState.score)} />
 
-            {screen === "Board" ?
-                <Board players={players} handleWin={playerWinner => handleWin(playerWinner)} />
-                :
+
+            <Board screen={screen} players={players} handleWin={playerWinner => handleWin(playerWinner)} />
+            {
+                screen==="AskNewGame" ?
                 <AskNewRound players={players} winner={lastWin} playNewRound={() => setScreen("Board")} />
+                :
+                null
             }
         </div>
     )
