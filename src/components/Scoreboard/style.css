@@ -1,0 +1,30 @@
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 270px;
+}
+
+.scoreboard > h3 {
+    font-weight: 400;
+    margin: 6px;
+    font-size: 16px;
+}
+
+.scoreboard > button {
+    margin-top: 12px;
+}
+
+.scoreboard-player {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.scoreboard-player > * {
+    margin-left: 10px;
+}

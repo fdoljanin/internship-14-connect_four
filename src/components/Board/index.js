@@ -5,7 +5,7 @@ import BoardColumn from "../BoardColumn/index";
 import { Players } from '../../consts';
 import RoundStatus from '../RoundStatus';
 
-const Board = ({ players }) => {
+const Board = ({ players, handleWin }) => {
     const [boardCells, setBoardCells] = useState(constructBoardCells());
     const [currentPlayer, setCurrentPlayer] = useState(Players.playerOne);
 
@@ -23,8 +23,7 @@ const Board = ({ players }) => {
     }
 
     const isSuccess = (cells) => {
-        console.log(cells);
-        for (let i = 0; i < cells.length - 4; ++i) {
+        for (let i = 0; i < cells.length - 3; ++i) {
             let match = true;
             for (let j = i + 1; j < i + 4; ++j)
                 match &= cells[i] === cells[j];
@@ -58,7 +57,9 @@ const Board = ({ players }) => {
             for (let i = 0; i < 7; ++i)
                 //console.log(column+way.x[i], row+way.y[i]);
                 listOfCells.push(boardCells[column + way.x[i]]?.[row + way.y[i]]);
-            if (isSuccess(listOfCells)) alert("win");
+            listOfCells[3] = currentPlayer;
+
+            if (isSuccess(listOfCells)) handleWin(currentPlayer);
         }
     }
 

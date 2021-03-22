@@ -1,3 +1,10 @@
+.round { 
+    display: flex;
+    flex-direction: column;
+}
+
 .board-table {
     display: flex;
+    align-self: center;
+    margin-top: 50px;
 }

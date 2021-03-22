@@ -1,0 +1,13 @@
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.circle--playerOne {
+    background: #55f;
+}
+
+.circle--playerTwo {
+    background: #f55;
+}

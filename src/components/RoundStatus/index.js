@@ -1,7 +1,10 @@
-const RoundStatus = ({players, currentPlayer}) => {
+import './style.css';
+
+const RoundStatus = ({ players, currentPlayer }) => {
     return (
-        <div>
+        <div class="round-status">
             <p>Current player: {players[currentPlayer]}</p>
+            <div className={"circle circle--" + currentPlayer}></div>
         </div>
     )
 }

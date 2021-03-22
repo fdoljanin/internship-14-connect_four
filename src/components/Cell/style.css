@@ -5,9 +5,9 @@
     background: #aaa;
 }
 
-.cell-first__player {
+.cell--playerOne {
     background: #55f;
 }
-.cell-second__player {
+.cell--playerTwo {
     background: #f55;
 }

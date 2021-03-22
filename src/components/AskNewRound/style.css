@@ -1,0 +1,22 @@
+.round-new {
+    border: 2px solid black;
+    width: 250px;
+    margin: 200px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.round-new--playerOne {
+    color: #55f;
+    border-color: #55f;
+}
+
+.round-new--playerTwo {
+    color: #f55;
+    border-color: #f55;
+}
+
+.round-new > * {
+    margin: 5px;
+}

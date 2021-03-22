@@ -1,0 +1,8 @@
+.round-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 170px;
+    position: absolute;
+    left: 30px;
+}
